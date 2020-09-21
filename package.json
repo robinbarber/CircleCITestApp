@@ -1,0 +1,11 @@
+{
+    "scripts": {
+        "test": "jest --watchAll",
+        "testSum": "jest",
+        "coverage": "jest --coverage"
+    },
+    "devDependencies": {
+        "cypress": "^5.2.0"
+    },
+    "dependencies": {}
+}
