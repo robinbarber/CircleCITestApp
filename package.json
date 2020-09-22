@@ -4,13 +4,13 @@
         "cy:testButton": "./node_modules/.bin/cypress run --spec 'cypress/integration/sample_spec.js' ",
         "start": "http-server",
         "test": "start-server-and-test start http://localhost:8080 cy:run",
-        "cy:verify" : "yarn cypress verify"
+        "cy:verify": "yarn cypress verify"
     },
     "devDependencies": {
-        "cypress": "^5.2.0"
+        "cypress": "^5.2.0",
+        "http-server": "^0.12.3"
     },
     "dependencies": {
-        "start-server-and-test": "^1.11.4",
-        "http-server" : "0.12.3"
+        "start-server-and-test": "^1.11.4"
     }
 }
