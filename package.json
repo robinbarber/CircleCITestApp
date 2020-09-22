@@ -1,11 +1,14 @@
 {
     "scripts": {
-        "test": "jest --watchAll",
-        "testSum": "jest",
-        "coverage": "jest --coverage"
+        "cy:run": "./node_modules/.bin/cypress run",
+        "cy:testButton": "./node_modules/.bin/cypress run --spec 'cypress/integration/sample_spec.js' ",
+        "start": "http-server",
+        "test": "start-server-and-test start http://localhost:8080 cy:run"
     },
     "devDependencies": {
         "cypress": "^5.2.0"
     },
-    "dependencies": {}
+    "dependencies": {
+        "start-server-and-test": "^1.11.4"
+    }
 }
