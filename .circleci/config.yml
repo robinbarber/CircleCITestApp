@@ -21,7 +21,7 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
-      start server and then run tests
+      # start server and then run tests
       # - run:
       #     command: npm run start:ci
       #     background: true
