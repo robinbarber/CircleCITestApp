@@ -40,7 +40,6 @@ jobs:
 
       - run:
           command: |
-            heroku create
             git push heroku circleci-project-setup:master
     
 
