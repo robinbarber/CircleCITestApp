@@ -41,7 +41,7 @@ jobs:
       - run:
           command: |
             heroku create
-            git push heroku sequential-branch-filter:master
+            git push heroku circleci-project-setup:master
     
 
 workflows:
