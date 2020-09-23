@@ -23,6 +23,9 @@ jobs:
             - ~/.npm
             - ~/.cache
       # start server and then run tests
+      # - run:
+      #     command: npm run start:ci
+      #     background: true
       - run: npm run test
 
 workflows:
