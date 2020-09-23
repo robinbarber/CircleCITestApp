@@ -23,10 +23,36 @@ jobs:
             - ~/.npm
             - ~/.cache
       # start server and then run tests
-      - run: npm run test
+      - run: npm run start
+
+  deploy:
+    machine:
+        enabled: true
+    # working_directory: ~/circleci-demo-workflows
+    environment:
+      HEROKU_APP: "floating-cliffs-01750" # define env var $HEROKU_APP
+      # HEROKU_API_KEY: ca9d4077-e2d8-4d2f-91e7-00e62f1f006b#
+    steps:
+      - checkout
+      - run:
+          name: Setup Heroku
+          command: bash .circleci/setup-heroku.sh # run a script to set up Heroku
+
+      - run:
+          command: |
+            heroku create
+            git push heroku circleci-project-setup:master
+    
 
 workflows:
   version: 2
-  build_and_test:
+  build_test_deploy:
     jobs:
       - build_and_test
+      - deploy:  
+          requires: 
+            - build_and_test
+          filters: 
+            branches: 
+              only: circleci-project-setup
+      
