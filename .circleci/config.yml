@@ -40,7 +40,7 @@ jobs:
 
       - run:
           command: |
-            git push heroku circleci-project-setup:master
+            git push heroku circleci-project-setup:main
     
 
 workflows:
