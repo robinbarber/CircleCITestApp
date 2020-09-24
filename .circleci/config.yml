@@ -31,14 +31,16 @@ jobs:
     # working_directory: ~/circleci-demo-workflows
     environment:
       HEROKU_APP: "floating-cliffs-01750" # define env var $HEROKU_APP
-      HEROKU_API_KEY: ca9d4077-e2d8-4d2f-91e7-00e62f1f006b
-      HEROKU_USER: robinbarber@fastmail.com
+      HEROKU_API_KEY: $HEROKU_API_KEY
+      HEROKU_USER: $HEROKU_USER
     steps:
       - checkout
       - run:
           name: Setup Heroku
           command: bash .circleci/setup-heroku.sh # run a script to set up Heroku
-
+      - add_ssh_keys:
+           fingerprints:
+             - $HEROKU_SSH_FINGERPRINT
       - run:
           command: |
             heroku git:remote -a floating-cliffs-01750
