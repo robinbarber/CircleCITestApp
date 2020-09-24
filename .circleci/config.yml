@@ -44,7 +44,7 @@ jobs:
       - run:
           command: |
             heroku git:remote -a floating-cliffs-01750
-            git push heroku circleci-project-setup:main
+            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP.git master
     
 
 workflows:
@@ -53,8 +53,8 @@ workflows:
     jobs:
       - build_and_test
       - deploy: 
-          # requires: 
-          #   - build_and_test
+          requires: 
+            - build_and_test
           filters: 
             branches: 
               only: circleci-project-setup
